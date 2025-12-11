@@ -1,5 +1,3 @@
-//
-
 @testable import AnimationExamples
 import Testing
 
