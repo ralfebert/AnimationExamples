@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF7835BB2EEB414F0084DBC1 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = BF7835BA2EEB414F0084DBC1 /* SVGView */; };
+		BF7835D62EEB54930084DBC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BF7835D52EEB54930084DBC1 /* Lottie */; };
+		BF7835DC2EEB56CC0084DBC1 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = BF7835DB2EEB56CC0084DBC1 /* RiveRuntime */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7835BB2EEB414F0084DBC1 /* SVGView in Frameworks */,
+				BF7835D62EEB54930084DBC1 /* Lottie in Frameworks */,
+				BF7835DC2EEB56CC0084DBC1 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +108,8 @@
 			name = AnimationExamples;
 			packageProductDependencies = (
 				BF7835BA2EEB414F0084DBC1 /* SVGView */,
+				BF7835D52EEB54930084DBC1 /* Lottie */,
+				BF7835DB2EEB56CC0084DBC1 /* RiveRuntime */,
 			);
 			productName = AnimationExamples;
 			productReference = BF78358E2EEB3B960084DBC1 /* AnimationExamples.app */;
@@ -162,6 +168,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				BF7835B82EEB41350084DBC1 /* XCRemoteSwiftPackageReference "SVGView" */,
+				BF7835D42EEB54930084DBC1 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				BF7835DA2EEB56CC0084DBC1 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BF78358F2EEB3B960084DBC1 /* Products */;
@@ -278,6 +286,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -334,6 +343,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -362,7 +372,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -394,7 +403,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -487,6 +495,22 @@
 				minimumVersion = 1.0.6;
 			};
 		};
+		BF7835D42EEB54930084DBC1 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
+		BF7835DA2EEB56CC0084DBC1 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.12.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -494,6 +518,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF7835B82EEB41350084DBC1 /* XCRemoteSwiftPackageReference "SVGView" */;
 			productName = SVGView;
+		};
+		BF7835D52EEB54930084DBC1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7835D42EEB54930084DBC1 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		BF7835DB2EEB56CC0084DBC1 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7835DA2EEB56CC0084DBC1 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,24 @@
 {
-  "originHash" : "fad38d66cdb363921d5711ab43423bba53b43e67c545c7aacf4be56f9ddee1e2",
+  "originHash" : "6fd6bfadd009df75bd9cf6e13057ac9d877c57cf4b2c21f4071275f4d46c68fc",
   "pins" : [
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "04f2fd18cc9404a0a0917265a449002674f24ec9",
+        "version" : "4.5.2"
+      }
+    },
+    {
+      "identity" : "rive-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rive-app/rive-ios",
+      "state" : {
+        "revision" : "d2919b9f21fb0584705c557fbb67b681f0cd847f",
+        "version" : "6.12.3"
+      }
+    },
     {
       "identity" : "svgview",
       "kind" : "remoteSourceControl",

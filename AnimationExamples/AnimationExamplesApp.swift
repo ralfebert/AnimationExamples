@@ -4,7 +4,7 @@ import SwiftUI
 struct AnimationExamplesApp: App {
     var body: some Scene {
         WindowGroup {
-            AnimatedEyesWithSVGShaper()
+            LottieExample()
         }
     }
 }
