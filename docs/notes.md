@@ -1,0 +1,1 @@
+* can SwiftUI modifiers be applied to SVGView shape nodes programmatically?
