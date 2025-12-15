@@ -1,0 +1,3 @@
+--swiftversion 5.10
+--disable preferForLoop,unusedArguments,blankLinesAtStartOfScope,blankLinesAtEndOfScope,andOperator,redundantSelf,redundantStaticSelf,redundantInternal,preferKeyPath,redundantLet,swiftTestingTestCaseNames,trailingClosures
+--header ""

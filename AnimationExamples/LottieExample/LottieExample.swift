@@ -1,5 +1,3 @@
-//
-
 import Lottie
 import SwiftUI
 

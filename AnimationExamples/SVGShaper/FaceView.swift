@@ -12,25 +12,37 @@ struct FaceView: View {
         let params: FaceParams
 
         struct Mouth: View { // SVGPath
+            let happy: Bool
 
             struct Mouth: Shape {
-                static let centerPoint = CGPoint(x: 400, y: 533.333 + (33.333 / 2.0))
+                var yScale: CGFloat
+
+                var animatableData: CGFloat {
+                    get {
+                        yScale
+                    }
+                    set {
+                        yScale = newValue
+                    }
+                }
 
                 func path(in _: CGRect) -> Path {
                     Path { path in
-                        path.move(to: CGPoint(x: 300, y: 533.333))
-                        path.addCurve(to: CGPoint(x: 400, y: 566.667),
-                                      control1: CGPoint(x: 328.346, y: 554.343),
-                                      control2: CGPoint(x: 362.82, y: 566.667))
-                        path.addCurve(to: CGPoint(x: 500, y: 533.333),
-                                      control1: CGPoint(x: 437.18, y: 566.667),
-                                      control2: CGPoint(x: 471.653, y: 554.343))
+                        path.move(to: CGPoint(x: -100, y: -33.334 * yScale))
+                        path.addCurve(to: CGPoint(x: 0, y: 0 * yScale),
+                                      control1: CGPoint(x: -71.654, y: -12.324 * yScale),
+                                      control2: CGPoint(x: -37.18, y: 0 * yScale))
+                        path.addCurve(to: CGPoint(x: 100, y: -33.334 * yScale),
+                                      control1: CGPoint(x: 37.18, y: 0 * yScale),
+                                      control2: CGPoint(x: 71.653, y: -12.324 * yScale))
                     }
+
                 }
             }
 
             var body: some View {
-                Mouth()
+                Mouth(yScale: happy ? 1 : -1)
+                    .offset(x: 400, y: 550)
                     .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
             }
         }
@@ -241,17 +253,8 @@ struct FaceView: View {
 
         var body: some View {
             ZStack(alignment: .topLeading) {
-                let centerPoint = FaceView.Face.Mouth.Mouth.centerPoint
-                Mouth()
-                    .animation(.linear(duration: 1.0)) { view in
-                        view
-                            .opacity(params.happy ? 1.0 : 0.5)
-                            .transformEffect(
-                                CGAffineTransform(translationX: centerPoint.x, y: centerPoint.y)
-                                    .rotated(by: params.happy ? 0 : Angle(degrees: 180).radians)
-                                    .translatedBy(x: -centerPoint.x, y: -centerPoint.y)
-                            )
-                    }
+                Mouth(happy: params.happy)
+                    .animation(.default, value: params.happy)
                 Eye2()
                 Pupil2()
                     .offset(x: self.params.eyeX)

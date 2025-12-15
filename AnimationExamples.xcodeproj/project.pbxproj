@@ -11,30 +11,14 @@
 		BF7835D62EEB54930084DBC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BF7835D52EEB54930084DBC1 /* Lottie */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BF78359C2EEB3B970084DBC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF7835862EEB3B960084DBC1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF78358D2EEB3B960084DBC1;
-			remoteInfo = AnimationExamples;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		BF78358E2EEB3B960084DBC1 /* AnimationExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF78359B2EEB3B970084DBC1 /* AnimationExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BF7835902EEB3B960084DBC1 /* AnimationExamples */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AnimationExamples;
-			sourceTree = "<group>";
-		};
-		BF78359E2EEB3B970084DBC1 /* AnimationExamplesTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AnimationExamplesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -49,13 +33,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF7835982EEB3B970084DBC1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -63,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				BF7835902EEB3B960084DBC1 /* AnimationExamples */,
-				BF78359E2EEB3B970084DBC1 /* AnimationExamplesTests */,
 				BF7835B92EEB414F0084DBC1 /* Frameworks */,
 				BF78358F2EEB3B960084DBC1 /* Products */,
 			);
@@ -73,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				BF78358E2EEB3B960084DBC1 /* AnimationExamples.app */,
-				BF78359B2EEB3B970084DBC1 /* AnimationExamplesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,29 +87,6 @@
 			productReference = BF78358E2EEB3B960084DBC1 /* AnimationExamples.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF78359A2EEB3B970084DBC1 /* AnimationExamplesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF7835B22EEB3B970084DBC1 /* Build configuration list for PBXNativeTarget "AnimationExamplesTests" */;
-			buildPhases = (
-				BF7835972EEB3B970084DBC1 /* Sources */,
-				BF7835982EEB3B970084DBC1 /* Frameworks */,
-				BF7835992EEB3B970084DBC1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF78359D2EEB3B970084DBC1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BF78359E2EEB3B970084DBC1 /* AnimationExamplesTests */,
-			);
-			name = AnimationExamplesTests;
-			packageProductDependencies = (
-			);
-			productName = AnimationExamplesTests;
-			productReference = BF78359B2EEB3B970084DBC1 /* AnimationExamplesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,10 +99,6 @@
 				TargetAttributes = {
 					BF78358D2EEB3B960084DBC1 = {
 						CreatedOnToolsVersion = 26.1.1;
-					};
-					BF78359A2EEB3B970084DBC1 = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = BF78358D2EEB3B960084DBC1;
 					};
 				};
 			};
@@ -173,20 +121,12 @@
 			projectRoot = "";
 			targets = (
 				BF78358D2EEB3B960084DBC1 /* AnimationExamples */,
-				BF78359A2EEB3B970084DBC1 /* AnimationExamplesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF78358C2EEB3B960084DBC1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF7835992EEB3B970084DBC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,22 +143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF7835972EEB3B970084DBC1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BF78359D2EEB3B970084DBC1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF78358D2EEB3B960084DBC1 /* AnimationExamples */;
-			targetProxy = BF78359C2EEB3B970084DBC1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BF7835AD2EEB3B970084DBC1 /* Debug */ = {
@@ -406,50 +331,6 @@
 			};
 			name = Release;
 		};
-		BF7835B32EEB3B970084DBC1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R476D442DR;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.ralfebert.AnimationExamplesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimationExamples.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnimationExamples";
-			};
-			name = Debug;
-		};
-		BF7835B42EEB3B970084DBC1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R476D442DR;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.ralfebert.AnimationExamplesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimationExamples.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnimationExamples";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -467,15 +348,6 @@
 			buildConfigurations = (
 				BF7835B02EEB3B970084DBC1 /* Debug */,
 				BF7835B12EEB3B970084DBC1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF7835B22EEB3B970084DBC1 /* Build configuration list for PBXNativeTarget "AnimationExamplesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF7835B32EEB3B970084DBC1 /* Debug */,
-				BF7835B42EEB3B970084DBC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
