@@ -3,269 +3,172 @@ import SwiftUI
 // SVG
 struct FaceView: View {
     let params: FaceParams
-
-    static let intrinsicSize = CGSize(width: 800, height: 800)
+    static let intrinsicSize = CGSize(width: 440, height: 440)
 
     // Nested Groups and Shapes
 
-    struct Face: View {
-        let params: FaceParams
+    struct Corner1: View { // SVGPath
 
-        struct Mouth: View { // SVGPath
-            let happy: Bool
+        struct Corner1: Shape {
 
-            struct Mouth: Shape {
-                var yScale: CGFloat
-
-                var animatableData: CGFloat {
-                    get {
-                        yScale
-                    }
-                    set {
-                        yScale = newValue
-                    }
+            func path(in rect: CGRect) -> Path {
+                Path { path in
+                    path.move(to: CGPoint(x: 140, y: 20))
+                    path.addLine(to: CGPoint(x: 80, y: 20))
+                    path.addCurve(to: CGPoint(x: 20, y: 80),
+                                  control1: CGPoint(x: 46.8629, y: 20),
+                                  control2: CGPoint(x: 20, y: 46.8629))
+                    path.addLine(to: CGPoint(x: 20, y: 140))
                 }
-
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: -100, y: -33.334 * yScale))
-                        path.addCurve(to: CGPoint(x: 0, y: 0 * yScale),
-                                      control1: CGPoint(x: -71.654, y: -12.324 * yScale),
-                                      control2: CGPoint(x: -37.18, y: 0 * yScale))
-                        path.addCurve(to: CGPoint(x: 100, y: -33.334 * yScale),
-                                      control1: CGPoint(x: 37.18, y: 0 * yScale),
-                                      control2: CGPoint(x: 71.653, y: -12.324 * yScale))
-                    }
-
-                }
-            }
-
-            var body: some View {
-                Mouth(yScale: happy ? 1 : -1)
-                    .offset(x: 400, y: 550)
-                    .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
-            }
-        }
-
-        struct Eye2: View { // SVGPath
-
-            struct Eye2: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 500, y: 366.67))
-                        path.addCurve(to: CGPoint(x: 533.333, y: 333.335),
-                                      control1: CGPoint(x: 518.409, y: 366.67),
-                                      control2: CGPoint(x: 533.333, y: 351.745))
-                        path.addCurve(to: CGPoint(x: 500, y: 300),
-                                      control1: CGPoint(x: 533.333, y: 314.925),
-                                      control2: CGPoint(x: 518.409, y: 300))
-                        path.addCurve(to: CGPoint(x: 466.667, y: 333.335),
-                                      control1: CGPoint(x: 481.59, y: 300),
-                                      control2: CGPoint(x: 466.667, y: 314.925))
-                        path.addCurve(to: CGPoint(x: 500, y: 366.67),
-                                      control1: CGPoint(x: 466.667, y: 351.745),
-                                      control2: CGPoint(x: 481.59, y: 366.67))
-                        path.closeSubpath()
-                    }
-                }
-            }
-
-            var body: some View {
-                Eye2()
-                    .fill(Color(red: 0.1098, green: 0.1529, blue: 0.298))
-            }
-        }
-
-        struct Pupil2: View { // SVGPath
-
-            struct Pupil2: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 500, y: 342.89))
-                        path.addCurve(to: CGPoint(x: 509.556, y: 333.333),
-                                      control1: CGPoint(x: 505.278, y: 342.89),
-                                      control2: CGPoint(x: 509.556, y: 338.611))
-                        path.addCurve(to: CGPoint(x: 500, y: 323.777),
-                                      control1: CGPoint(x: 509.556, y: 328.055),
-                                      control2: CGPoint(x: 505.278, y: 323.777))
-                        path.addCurve(to: CGPoint(x: 490.444, y: 333.333),
-                                      control1: CGPoint(x: 494.722, y: 323.777),
-                                      control2: CGPoint(x: 490.444, y: 328.055))
-                        path.addCurve(to: CGPoint(x: 500, y: 342.89),
-                                      control1: CGPoint(x: 490.444, y: 338.611),
-                                      control2: CGPoint(x: 494.722, y: 342.89))
-                        path.closeSubpath()
-                    }
-                }
-            }
-
-            var body: some View {
-                Pupil2()
-                    .fill(Color.white)
-            }
-        }
-
-        struct Eye1: View { // SVGPath
-
-            struct Eye1: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 300, y: 366.67))
-                        path.addCurve(to: CGPoint(x: 333.333, y: 333.335),
-                                      control1: CGPoint(x: 318.41, y: 366.67),
-                                      control2: CGPoint(x: 333.333, y: 351.745))
-                        path.addCurve(to: CGPoint(x: 300, y: 300),
-                                      control1: CGPoint(x: 333.333, y: 314.925),
-                                      control2: CGPoint(x: 318.41, y: 300))
-                        path.addCurve(to: CGPoint(x: 266.667, y: 333.335),
-                                      control1: CGPoint(x: 281.591, y: 300),
-                                      control2: CGPoint(x: 266.667, y: 314.925))
-                        path.addCurve(to: CGPoint(x: 300, y: 366.67),
-                                      control1: CGPoint(x: 266.667, y: 351.745),
-                                      control2: CGPoint(x: 281.591, y: 366.67))
-                        path.closeSubpath()
-                    }
-                }
-            }
-
-            var body: some View {
-                Eye1()
-                    .fill(Color(red: 0.1098, green: 0.1529, blue: 0.298))
-            }
-        }
-
-        struct Pupil1: View { // SVGPath
-
-            struct Pupil1: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 300, y: 342.892))
-                        path.addCurve(to: CGPoint(x: 309.556, y: 333.335),
-                                      control1: CGPoint(x: 305.278, y: 342.892),
-                                      control2: CGPoint(x: 309.556, y: 338.613))
-                        path.addCurve(to: CGPoint(x: 300, y: 323.778),
-                                      control1: CGPoint(x: 309.556, y: 328.057),
-                                      control2: CGPoint(x: 305.278, y: 323.778))
-                        path.addCurve(to: CGPoint(x: 290.444, y: 333.335),
-                                      control1: CGPoint(x: 294.722, y: 323.778),
-                                      control2: CGPoint(x: 290.444, y: 328.057))
-                        path.addCurve(to: CGPoint(x: 300, y: 342.892),
-                                      control1: CGPoint(x: 290.444, y: 338.613),
-                                      control2: CGPoint(x: 294.722, y: 342.892))
-                        path.closeSubpath()
-                    }
-                }
-            }
-
-            var body: some View {
-                Pupil1()
-                    .fill(Color.white)
-            }
-        }
-
-        struct Corner4: View { // SVGPath
-
-            struct Corner4: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 733.333, y: 466.667))
-                        path.addCurve(to: CGPoint(x: 694.28, y: 694.28),
-                                      control1: CGPoint(x: 733.333, y: 592.373),
-                                      control2: CGPoint(x: 733.333, y: 655.23))
-                        path.addCurve(to: CGPoint(x: 466.667, y: 733.333),
-                                      control1: CGPoint(x: 655.23, y: 733.333),
-                                      control2: CGPoint(x: 592.373, y: 733.333))
-                    }
-                }
-            }
-
-            var body: some View {
-                Corner4()
-                    .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
-            }
-        }
-
-        struct Corner3: View { // SVGPath
-
-            struct Corner3: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 333.333, y: 733.333))
-                        path.addCurve(to: CGPoint(x: 105.719, y: 694.28),
-                                      control1: CGPoint(x: 207.625, y: 733.333),
-                                      control2: CGPoint(x: 144.772, y: 733.333))
-                        path.addCurve(to: CGPoint(x: 66.6667, y: 466.667),
-                                      control1: CGPoint(x: 66.6667, y: 655.23),
-                                      control2: CGPoint(x: 66.6667, y: 592.373))
-                    }
-                }
-            }
-
-            var body: some View {
-                Corner3()
-                    .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
-            }
-        }
-
-        struct Corner2: View { // SVGPath
-
-            struct Corner2: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 333.333, y: 66.6667))
-                        path.addCurve(to: CGPoint(x: 105.719, y: 105.719),
-                                      control1: CGPoint(x: 207.625, y: 66.6667),
-                                      control2: CGPoint(x: 144.772, y: 66.6667))
-                        path.addCurve(to: CGPoint(x: 66.6667, y: 333.333),
-                                      control1: CGPoint(x: 66.6667, y: 144.772),
-                                      control2: CGPoint(x: 66.6667, y: 207.625))
-                    }
-                }
-            }
-
-            var body: some View {
-                Corner2()
-                    .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
-            }
-        }
-
-        struct Corner1: View { // SVGPath
-
-            struct Corner1: Shape {
-                func path(in _: CGRect) -> Path {
-                    Path { path in
-                        path.move(to: CGPoint(x: 466.667, y: 66.6667))
-                        path.addCurve(to: CGPoint(x: 694.28, y: 105.719),
-                                      control1: CGPoint(x: 592.373, y: 66.6667),
-                                      control2: CGPoint(x: 655.23, y: 66.6667))
-                        path.addCurve(to: CGPoint(x: 733.333, y: 333.333),
-                                      control1: CGPoint(x: 733.333, y: 144.772),
-                                      control2: CGPoint(x: 733.333, y: 207.625))
-                    }
-                }
-            }
-
-            var body: some View {
-                Corner1()
-                    .stroke(Color(red: 0.1098, green: 0.1529, blue: 0.298), style: StrokeStyle(lineWidth: 50, lineCap: .round))
             }
         }
 
         var body: some View {
-            ZStack(alignment: .topLeading) {
-                Mouth(happy: params.happy)
-                    .animation(.default, value: params.happy)
-                Eye2()
-                Pupil2()
-                    .offset(x: self.params.eyeX)
-                Eye1()
-                Pupil1()
-                    .offset(x: self.params.eyeX)
-                Corner4()
-                Corner3()
-                Corner2()
-                Corner1()
+            Corner1()
+                .stroke(Color.black, style: StrokeStyle(lineWidth: 40, lineCap: .round))
+        }
+    }
+
+    struct Corner2: View { // SVGPath
+
+        struct Corner2: Shape {
+
+            func path(in rect: CGRect) -> Path {
+                Path { path in
+                    path.move(to: CGPoint(x: 300, y: 20))
+                    path.addLine(to: CGPoint(x: 360, y: 20))
+                    path.addCurve(to: CGPoint(x: 420, y: 80),
+                                  control1: CGPoint(x: 393.137, y: 20),
+                                  control2: CGPoint(x: 420, y: 46.8629))
+                    path.addLine(to: CGPoint(x: 420, y: 140))
+                }
             }
+        }
+
+        var body: some View {
+            Corner2()
+                .stroke(Color.black, style: StrokeStyle(lineWidth: 40, lineCap: .round))
+        }
+    }
+
+    struct Corner3: View { // SVGPath
+
+        struct Corner3: Shape {
+
+            func path(in rect: CGRect) -> Path {
+                Path { path in
+                    path.move(to: CGPoint(x: 140, y: 420))
+                    path.addLine(to: CGPoint(x: 80, y: 420))
+                    path.addCurve(to: CGPoint(x: 20, y: 360),
+                                  control1: CGPoint(x: 46.8629, y: 420),
+                                  control2: CGPoint(x: 20, y: 393.137))
+                    path.addLine(to: CGPoint(x: 20, y: 300))
+                }
+            }
+        }
+
+        var body: some View {
+            Corner3()
+                .stroke(Color.black, style: StrokeStyle(lineWidth: 40, lineCap: .round))
+        }
+    }
+
+    struct Corner4: View { // SVGPath
+
+        struct Corner4: Shape {
+
+            func path(in rect: CGRect) -> Path {
+                Path { path in
+                    path.move(to: CGPoint(x: 300, y: 420))
+                    path.addLine(to: CGPoint(x: 360, y: 420))
+                    path.addCurve(to: CGPoint(x: 420, y: 360),
+                                  control1: CGPoint(x: 393.137, y: 420),
+                                  control2: CGPoint(x: 420, y: 393.137))
+                    path.addLine(to: CGPoint(x: 420, y: 300))
+                }
+            }
+        }
+
+        var body: some View {
+            Corner4()
+                .stroke(Color.black, style: StrokeStyle(lineWidth: 40, lineCap: .round))
+        }
+    }
+
+    struct Mouth: View { // SVGPath
+        let happy: Bool
+
+        struct Mouth: Shape {
+            var scaleY: CGFloat
+
+            var animatableData: CGFloat {
+                get {
+                    self.scaleY
+                }
+                set {
+                    self.scaleY = newValue
+                }
+            }
+
+            func path(in rect: CGRect) -> Path {
+                Path { path in
+                    path.move(to: CGPoint(x: -60, y: scaleY * -10))
+                    path.addCurve(to: CGPoint(x: 60, y: scaleY * -10),
+                                  control1: CGPoint(x: -27.019, y: scaleY * 23.333),
+                                  control2: CGPoint(x: 27.019, y: scaleY * 23.333))
+                }
+                .offsetBy(dx: 220, dy: 290)
+            }
+        }
+
+        var body: some View {
+            Mouth(scaleY: self.happy ? 1 : -1)
+                .stroke(Color.black, style: StrokeStyle(lineWidth: 40, lineCap: .round))
+                .animation(.snappy, value: self.happy)
+        }
+    }
+
+    struct Eye_l: View {
+
+        static let intrinsicSize = CGSize(width: 60, height: 60)
+        static let origin = CGPoint(x: 120, y: 140)
+
+        var body: some View {
+            Circle()
+                .fill(Color.black)
+        }
+    }
+
+    struct Pupil_l: View {
+
+        static let intrinsicSize = CGSize(width: 20, height: 20)
+        static let origin = CGPoint(x: 140, y: 160)
+
+        var body: some View {
+            Circle()
+                .fill(Color.white)
+        }
+    }
+
+    struct Eye_r: View {
+
+        static let intrinsicSize = CGSize(width: 60, height: 60)
+        static let origin = CGPoint(x: 260, y: 140)
+
+        var body: some View {
+            Circle()
+                .fill(Color.black)
+        }
+    }
+
+    struct Pupil_r: View {
+
+        static let intrinsicSize = CGSize(width: 20, height: 20)
+        static let origin = CGPoint(x: 280, y: 160)
+
+        var body: some View {
+            Circle()
+                .fill(Color.white)
         }
     }
 
@@ -275,21 +178,66 @@ struct FaceView: View {
     var body: some View {
         if isResizable {
             GeometryReader { proxy in
-                Face(params: params)
-                    .frame(width: 800, height: 800,
-                           alignment: .topLeading)
-                    .scaleEffect(x: proxy.size.width / 800,
-                                 y: proxy.size.height / 800)
-                    .frame(width: proxy.size.width, height: proxy.size.height)
+                ZStack(alignment: .topLeading) {
+                    Corner1()
+                    Corner2()
+                    Corner3()
+                    Corner4()
+                    Mouth(happy: params.happy)
+                    Eye_l()
+                        .frame(width: 60, height: 60, alignment: .topLeading)
+                        .padding(.leading, 120)
+                        .padding(.top, 140)
+                    Pupil_l()
+                        .frame(width: 20, height: 20, alignment: .topLeading)
+                        .padding(.leading, 140 + self.params.eyeX)
+                        .padding(.top, 160)
+                    Eye_r()
+                        .frame(width: 60, height: 60, alignment: .topLeading)
+                        .padding(.leading, 260)
+                        .padding(.top, 140)
+                    Pupil_r()
+                        .frame(width: 20, height: 20, alignment: .topLeading)
+                        .padding(.leading, 280 + self.params.eyeX)
+                        .padding(.top, 160)
+                }
+                .frame(width: 440, height: 440,
+                       alignment: .topLeading)
+                .scaleEffect(x: proxy.size.width / 440,
+                             y: proxy.size.height / 440)
+                .frame(width: proxy.size.width, height: proxy.size.height)
             }
         } else {
-            Face(params: params)
-                .frame(width: 800, height: 800)
+            ZStack(alignment: .topLeading) {
+                Corner1()
+                Corner2()
+                Corner3()
+                Corner4()
+                Mouth(happy: params.happy)
+                Eye_l()
+                    .frame(width: 60, height: 60, alignment: .topLeading)
+                    .padding(.leading, 120)
+                    .padding(.top, 140)
+                Pupil_l()
+                    .frame(width: 20, height: 20, alignment: .topLeading)
+                    .padding(.leading, 140)
+                    .padding(.top, 160)
+                Eye_r()
+                    .frame(width: 60, height: 60, alignment: .topLeading)
+                    .padding(.leading, 260)
+                    .padding(.top, 140)
+                Pupil_r()
+                    .frame(width: 20, height: 20, alignment: .topLeading)
+                    .padding(.leading, 280)
+                    .padding(.top, 160)
+            }
+            .frame(width: 440, height: 440)
         }
     }
 }
 
 struct Group1_Previews: PreviewProvider {
+
     static var previews: some View {
         VStack {
             FaceView(params: .init())
@@ -298,7 +246,7 @@ struct Group1_Previews: PreviewProvider {
                        height: FaceView.intrinsicSize.height)
                 .background(Color.clear.border(Color.green))
                 .padding()
-            Text("Size: 800.0x800.0").padding(.bottom)
+            Text("Size: 440.0x440.0").padding(.bottom)
         }
     }
 }

@@ -30,12 +30,10 @@ struct AnimatedEyesWithSVGView: View {
 
     func updateSvg() {
         let delta = CGAffineTransform(translationX: faceParams.eyeX, y: 0)
-        face.getNode(byId: "pupil1")!.transform = delta
-        face.getNode(byId: "pupil2")!.transform = delta
+        face.getNode(byId: "pupil_l")!.transform = delta
+        face.getNode(byId: "pupil_r")!.transform = delta
         let mouth = face.getNode(byId: "mouth")! as! SVGPath
-        let center = CGPoint(x: mouth.bounds().midX, y: mouth.bounds().midY)
-        mouth.stroke = .init(fill: faceParams.happy ? SVGColor.black : SVGColor(0xAAAAAA), width: 20)
-        mouth.transform = CGAffineTransform(translationX: center.x, y: center.y).rotated(by: faceParams.happy ? 0 : .pi).translatedBy(x: -center.x, y: -center.y)
+        mouth.transform = mouth.transform.scaledBy(x: 1, y: faceParams.happy ? 1 : -1)
     }
 }
 
